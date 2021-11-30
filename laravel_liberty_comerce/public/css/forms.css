@@ -1,0 +1,103 @@
+html {
+    height: 100vh;
+}
+
+body {
+    height: 100%;
+}
+
+#main_wrapper {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+}
+
+.center_div {
+    align-self: center;
+    width: 40%;
+}
+
+.modif_form {
+    background-color: white;
+    border: 1px solid black;
+    margin: 2%;
+}
+
+.title {
+    text-align: center;
+}
+
+.already_registered {
+    text-align: center;
+    font-size: small;
+    color: #2c2825;
+    text-decoration: none;
+}
+
+.already_registered:hover {
+    color: grey;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+}
+
+.label_input {
+    display: flex;
+    flex-direction: column;
+    margin: 8%;
+    border-bottom: 2px solid black;
+}
+
+.delete_button {
+    display: flex;
+    flex-direction: column;
+    margin: 8%;
+}
+
+.input {
+    border: none;
+}
+
+textarea {
+    resize: vertical;
+    background-color: rgb(238, 238, 238);
+}
+
+select {
+    border: none;
+    font-family: Courier, Arial;
+}
+
+#button {
+    margin: auto;
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 8%;
+    margin-bottom: 2%;
+
+    font-family: Courier, Arial;
+}
+
+#delete_button {
+    margin: auto;
+    border: none;
+    background-color: rgb(211, 55, 55);
+    color: white;
+    padding: 1%;
+    margin-bottom: 2%;
+
+    font-family: Courier, Arial;
+}
+
+.input_error {
+    color: red;
+    border-color: red;
+}
+
+.input_error input {
+    color: red;
+}

@@ -1,0 +1,47 @@
+.popup {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.cookie {
+    width: 20%;
+    height: 20%;
+    margin: auto;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.msg {
+    margin-top: 5%;
+    height: 50%;
+}
+
+.choice {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.yescookie,
+.nocookie {
+    width: 40%;
+    cursor: pointer;
+}
+
+.yescookie:hover {
+    color: green;
+}
+.nocookie:hover {
+    color: red;
+}

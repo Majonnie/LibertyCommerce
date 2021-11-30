@@ -1,0 +1,51 @@
+#footer {
+    width: 100%;
+    color: white;
+    background-color: var(--main-color);
+    border-top: 7px #f0ebd8 solid;
+    box-sizing: border-box;
+    bottom: 0px;
+    clear: both;
+    position: relative;
+}
+
+.single_social {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.socials {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.socials img {
+    filter: invert(1);
+    align-self: center;
+    margin-bottom: 5%;
+}
+
+.logo_fb,
+.logo_twitter {
+    width: 40px;
+    height: 40px;
+    margin: 1%;
+}
+
+.socials a {
+    color: white;
+    text-decoration: none;
+}
+
+.socials a:hover {
+    color: grey;
+}
+
+.credits {
+    text-align: end;
+    padding-right: 1%;
+}
