@@ -34,12 +34,7 @@
                                         <a href="{{url('product', ['id'=>$product_id])}}"><p>Voir la spécialité</p></a>
                                     </div>
                                     @if ($product->stock > 0)
-                                    <form action="/cart" method="post">
-                                        @csrf
-                                        <input type="hidden" name="product_quantity" value="1">
-                                        <input type="hidden" name="product_id" value="{{$product_id}}">
-                                        <input type="submit" value="ACHETER" class="button">
-                                    </form>
+                                    <input type="submit" onclick="addToCart({{$product->id}})" value="ACHETER" class="button">
                                     @endif
                                 </div>
                             </div>
@@ -56,12 +51,7 @@
                                     <a href="{{url('product', ['id'=>$product_id])}}"><p>Voir la spécialité</p></a>
                                 @if ($product->stock > 0)
                                 </div>
-                                <form action="/cart" method="post">
-                                    @csrf
-                                    <input type="hidden" name="product_quantity" value="1">
-                                    <input type="hidden" name="product_id" value="{{$product_id}}">
-                                    <input type="submit" value="ACHETER" class="button">
-                                </form>
+                                    <input type="submit" onclick="addToCart({{$product->id}})" value="ACHETER" class="button">
                                 @else
                                 <p>Hors stock</p>
                                 </div>
