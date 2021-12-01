@@ -60,6 +60,14 @@ function createCart() {
     })
     document.querySelector('.total').innerHTML = "Total : "+total.toFixed(2)+" balles"
 }
+
+function deleteCart() {
+    var cart = getCart();
+    for (var i = 0; i < cart.length; i++) {
+        document.getElementById("cart_table").deleteRow(1)
+    }
+}
+
 function createOrderButton() {
     const orderButton = document.createElement("input");
     orderButton.setAttribute("type", "submit");
@@ -96,10 +104,9 @@ function order() {
     type: "POST",
     url: "order",
     data: {
-        data: cart,
+        data: JSON.stringify(cart),
         address: shipping_address,
     },
-    dataType: "json",
     success:(resp)=>{
         console.log(resp)
     },
@@ -107,5 +114,9 @@ function order() {
         console.log(resp)
     }
     });
-    
+    deleteCart();
+    cart = [];
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+    createCart();
+    document.querySelector(".success_msg").innerHTML = "Nous prenons en compte votre commande, elle vous sera livrée dans les plus brefs délais (Même si vous n'avez pas payé...)";
   }

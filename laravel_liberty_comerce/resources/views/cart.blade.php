@@ -17,7 +17,7 @@
         <div class="background-color">
             <div class="main_wrapper">
                 <h1 class="cart">Mon panier</h1>
-                @if (session('success')) <h4 class="cart">{{session('success')}}</h4> @endif
+                <h4 class="cart success_msg"></h4>
                 <div class="table_container">
                     <table id="cart_table">
                         <tr id ="columns">

@@ -61,15 +61,16 @@ class ProductController extends Controller
             'shipping_address' => $shipping_address
         ]);
         $items = $request->data;
-        $items_ordered = $items;
+        $items_ordered = json_decode($items);
         foreach ($items_ordered as $item) {
-            if (DB::table('products')->where('id', $item->id)->first()->stock > 0) {
-                DB::table('products')->where('id', $item->id)->decrement('stock');
-                DB::insert('INSERT INTO orders_has_products VALUES (?, ?)', [$order->id, $item->product_id]);
+            for ($i = 0; $i < $item->qty; $i++) {
+                if (DB::table('products')->where('id', $item->id)->first()->stock > 0) {
+                    DB::table('products')->where('id', $item->id)->decrement('stock');
+                    DB::insert('INSERT INTO orders_has_products VALUES (?, ?)', [$order->id, $item->id]);
+                }
             }
         }
-        DB::delete('DELETE FROM users_has_products WHERE user_id = ?', [auth()->user()->id]);
-        return redirect('cart')->with(['success' => "Nous prenons en compte votre commande, elle vous sera livrée dans les plus brefs délais (Même si vous n'avez pas payé...)"]);
+        return;
     }
 
     public function delete(Request $request)
