@@ -1,4 +1,14 @@
-function testAjax() {
+document.getElementById('refresh').addEventListener("click", getInfo);
+
+function getInfo() {
+    activeUser();
+    orderCount();
+    biggestOrder();
+}
+
+
+
+function activeUser() {
     $(document).on('click', '#refresh', function(event) {
         event.preventDefaut();
 
