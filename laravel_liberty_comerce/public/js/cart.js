@@ -76,9 +76,11 @@ function createOrderButton() {
     document.querySelector(".orderform").appendChild(orderButton);
 }
 
-createCart();
-if (getCart().length != 0) {
-    createOrderButton();
+if ( document.URL.includes("cart") ) {
+    createCart();
+    if (getCart().length != 0) {
+        createOrderButton();
+    }
 }
 
 function getCart() {
@@ -89,6 +91,18 @@ function getCart() {
     }
     return cart;
 }
+
+function countItems() {
+    var cart = getCart();
+    var count = 0;
+    cart.forEach(product => {
+        for (var i = 0; i<product.qty; i++) {
+            count++;
+        }
+    })
+    document.querySelector('.cart_count').innerHTML = count+" | Panier"
+}
+countItems();
 
 function order() {
     var cart = getCart();

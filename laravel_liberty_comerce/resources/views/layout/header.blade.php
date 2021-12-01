@@ -45,9 +45,7 @@
             <a href="{{url('catalogue/japon')}}"><li class="japan">Japon</li></a>
             <a href="{{url('cart')}}">
                 <li>
-                    @php 
-                        $session_info = session()->all(); 
-                    @endphp {{$session_info['item_count']}} | Panier<img class="panier" src="{{asset('storage/images/logos/Panier.png')}}">
+                    <span class="cart_count">0 | Panier</span><img class="panier" src="{{asset('storage/images/logos/Panier.png')}}">
                 </li>
             </a>
         </ul>

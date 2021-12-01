@@ -18,4 +18,6 @@
         </figure>
     </div>
     <div class="credits">© PONCIN Scotty & BONHOMME Julie</div>
+    <script type="text/javascript" src="../js/check_popup.js"></script>
+    <script type="text/javascript" src="../js/cart.js"></script>
 </footer>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Catalogue</title>
-        <link rel="icon" type="image/gif/png" href="storage/images/logos/Burger.png">
+        <link rel="icon" type="image/gif/png" href="../storage/images/logos/Burger.png">
         <link rel="stylesheet" href="../css/header.css">
         <link rel="stylesheet" href="../css/footer.css">
         <link rel="stylesheet" href="../css/catalogue.css">
@@ -76,6 +76,4 @@
         @include('layout.footer')
 
     </body>
-    <script type="text/javascript" src="../js/check_popup.js"></script>
-    <script type="text/javascript" src="../js/cart.js"></script>
 </html>

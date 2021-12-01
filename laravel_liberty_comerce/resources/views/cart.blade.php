@@ -43,7 +43,6 @@
             </div>
         </div>
     </body>
-    <script type="text/javascript" src="../js/cart.js"></script>
 
     @include('layout.footer')
     
