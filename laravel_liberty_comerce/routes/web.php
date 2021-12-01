@@ -38,6 +38,9 @@ Route::middleware('auth')->group(function (){
 
         Route::put('/modifyproduct', [ProductController::class, 'modify']);
         Route::put('/deleteproduct', [ProductController::class, 'delete']);
+        Route::get('/control', function () {
+            return view('control');
+        });
     });
 
     //Cart

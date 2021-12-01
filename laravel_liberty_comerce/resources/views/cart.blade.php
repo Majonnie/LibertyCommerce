@@ -22,7 +22,7 @@
                     <table id="cart_table">
                         <tr id ="columns">
                             <th>Produit</th>
-                            <th>Prix</th>
+                            <th>Prix (balles)</th>
                             <th>Quantité</th>
                             <th>Supprimer</th>
                         </tr>
