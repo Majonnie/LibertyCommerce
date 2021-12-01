@@ -59,7 +59,7 @@
                                     @csrf
                                     <input type="hidden" id="product_quantity" value="1">
                                     <input type="hidden" id="product_id" value="{{$product_id}}">
-                                    <input @if (Auth::check()) onclick="addToCart({{$product->id}}, {{$product->name}}, {{$product->price}})" @else onclick="loginView()" @endif type="submit" value="ACHETER" class="button">
+                                    <input @if (Auth::check()) onclick="addToCart({{$product->id}}, '{{$product->name}}', {{$product->price}})" @else onclick="loginView()" @endif type="submit" value="ACHETER" class="button">
                                 </form>
                                 @else
                                 <p>Hors stock</p>

@@ -17,11 +17,10 @@
             <div id="center_div">
                 <h3 id="title">ORDER</h3> 
                 @if ($errors->any()) <h4 class="error">{{$errors->first()}}</h4> @endif
-                <form action="/order" method="post" id="form">
-                    @csrf
+                <form id="form">
                     <div class="label_input">
                         <label class ="label" for="shipping_address">Adresse de livraison <br><i>exemple : 1 rue de what2eat 75000 Paris</i></label>
-                        <input class="input" type="text" id="shipping_address" value="{{old('email')}}">
+                        <input class="input" type="text" id="shipping_address">
                     </div>
                     <button onclick="order()" id="button" type="submit" value="order">Commander</button>
                 </form>

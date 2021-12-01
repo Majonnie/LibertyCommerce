@@ -73,6 +73,7 @@ function createOrderButton() {
     orderButton.setAttribute("type", "submit");
     orderButton.setAttribute("value", "Commander");
     orderButton.setAttribute("onclick", "order()");
+    orderButton.id = "order_button";
     document.querySelector(".orderform").appendChild(orderButton);
 }
 
@@ -106,9 +107,7 @@ countItems();
 
 function order() {
     var cart = getCart();
-    console.log(cart);
     var shipping_address = document.getElementById('shipping_address').value;
-    
     $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -128,9 +127,14 @@ function order() {
         console.log(resp)
     }
     });
+    refresh();
+}
+
+  function refresh() {
     deleteCart();
+    document.getElementById('order_button').remove();
     cart = [];
     sessionStorage.setItem('cart', JSON.stringify(cart));
     createCart();
-    document.querySelector(".success_msg").innerHTML = "Nous prenons en compte votre commande, elle vous sera livrée dans les plus brefs délais (Même si vous n'avez pas payé...)";
+    document.querySelector(".success_msg").innerHTML = "Nous prenons en compte votre commande, elle vous sera livrée dans les plus brefs délais (Même si vous n'avez pas payé...)";    
   }
