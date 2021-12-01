@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
@@ -54,17 +55,16 @@ class ProductController extends Controller
 
     public function order(Request $request)
     {
-        $shipping_address = $request->shipping_address;
+        $shipping_address = $request->address;
         $order = Order::create([
             'user_id' => auth()->user()->id,
             'shipping_address' => $shipping_address
         ]);
-        $items = $request->session()->get('cart');
-        dd($items);
+        $items = $request->data;
         $items_ordered = $items;
         foreach ($items_ordered as $item) {
-            if (DB::table('products')->where('id', $item->product_id)->first()->stock > 0) {
-                DB::table('products')->where('id', $item->product_id)->decrement('stock');
+            if (DB::table('products')->where('id', $item->id)->first()->stock > 0) {
+                DB::table('products')->where('id', $item->id)->decrement('stock');
                 DB::insert('INSERT INTO orders_has_products VALUES (?, ?)', [$order->id, $item->product_id]);
             }
         }

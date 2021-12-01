@@ -21,9 +21,9 @@
                     @csrf
                     <div class="label_input">
                         <label class ="label" for="shipping_address">Adresse de livraison <br><i>exemple : 1 rue de what2eat 75000 Paris</i></label>
-                        <input class="input" type="text" name="shipping_address" value="{{old('email')}}">
+                        <input class="input" type="text" id="shipping_address" value="{{old('email')}}">
                     </div>
-                    <button id="button" type="submit" value="order">Commander</button>
+                    <button onclick="order()" id="button" type="submit" value="order">Commander</button>
                 </form>
             </div>
         </div>

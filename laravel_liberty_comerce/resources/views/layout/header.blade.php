@@ -52,4 +52,5 @@
             </a>
         </ul>
     </nav>
+    <script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
 </header>

@@ -64,6 +64,7 @@ function createOrderButton() {
     const orderButton = document.createElement("input");
     orderButton.setAttribute("type", "submit");
     orderButton.setAttribute("value", "Commander");
+    orderButton.setAttribute("onclick", "order()");
     document.querySelector(".orderform").appendChild(orderButton);
 }
 
@@ -80,3 +81,31 @@ function getCart() {
     }
     return cart;
 }
+
+function order() {
+    var cart = getCart();
+    console.log(cart);
+    var shipping_address = document.getElementById('shipping_address').value;
+    
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+    });
+    $.ajax({
+    type: "POST",
+    url: "order",
+    data: {
+        data: cart,
+        address: shipping_address,
+    },
+    dataType: "json",
+    success:(resp)=>{
+        console.log(resp)
+    },
+    error:(resp)=>{
+        console.log(resp)
+    }
+    });
+    
+  }

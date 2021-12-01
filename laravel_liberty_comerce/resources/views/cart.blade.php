@@ -2,11 +2,13 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Panier</title>
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/panier.css">
         <link rel="stylesheet" href="css/header.css">
         <link rel="stylesheet" href="css/footer.css">
+        
     </head>
     
     @include('layout.header')
@@ -33,8 +35,7 @@
                     <form class="orderform" action="/order" method="get">
                     </form>
                     @else
-                    <form class="orderform" action="/order" method="post">
-                        @csrf
+                    <form class="orderform" onsubmit="return false">
                         <input type="hidden" id="shipping_address" value="{{auth()->user()->shipping_address}}">
                     </form>
                     @endif
