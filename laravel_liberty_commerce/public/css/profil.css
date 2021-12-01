@@ -1,0 +1,160 @@
+.main_wrapper {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+}
+
+.user_info {
+    flex: 5;
+    text-align: center;
+}
+
+.user_info div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto auto 1% auto;
+    height: 22%;
+    border-bottom: 1px solid white;
+    background-color: #f2eadb;
+    color: black;
+    vertical-align: center;
+    width: 50%;
+}
+
+.profile_picture {
+    flex: 1;
+    height: 100%;
+    background-color: #f2eadb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_picture img {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 30%;
+    padding: 2%;
+    box-shadow: 7px 7px rgba(30, 30, 30, 0.5);
+    border-radius: 5px;
+    background-color: #272725;
+    margin-bottom: 2%;
+}
+
+.middle {
+    width: 100%;
+    min-height: 30%;
+    padding: 2%;
+    word-wrap: break-word;
+    box-shadow: 7px 7px rgba(30, 30, 30, 0.5);
+    border-radius: 5px;
+    background-color: #f2eadb;
+    margin-bottom: 2%;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 30%;
+    padding: 2%;
+    box-shadow: 7px 7px rgba(30, 30, 30, 0.5);
+    border-radius: 5px;
+    background-color: #272725;
+    color: white;
+    margin-bottom: 2%;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 30%;
+    border-radius: 5px;
+    color: white;
+}
+
+.edit_button {
+    margin: auto;
+    border: none;
+    background-color: black;
+    color: white;
+    height: 100%;
+    padding: 2% 4% 2% 4%;
+    font-family: Courier, Arial;
+
+    text-decoration: none;
+}
+
+.description {
+    height: fit-content;
+    word-wrap: break-word;
+    font-weight: 600;
+}
+
+.date_address {
+    text-align: left;
+}
+
+.orders_list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.order {
+    background-color: #f2eadb;
+    padding: 2%;
+    color: black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    text-align: left;
+    margin: auto;
+    margin-bottom: 2%;
+}
+
+tr:nth-child(even) {
+    background-color: #dfd5c3;
+}
+
+th {
+    background-color: #272725;
+    color: white;
+}
+th,
+td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+body {
+    background-image: url("../storage/images/fond.jpeg");
+    background-size: cover;
+    height: 100%;
+}

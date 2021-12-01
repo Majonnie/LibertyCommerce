@@ -1,0 +1,92 @@
+/* Catalogue */
+
+.main_wrapper {
+    width: 80%;
+    margin: auto;
+}
+
+.welcome
+{
+    background-color: white;
+    font-size: 2.5em;
+    text-align: center;
+    box-shadow: 10px 10px rgba(30, 30, 30, 0.5);
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.title
+{
+    font-style: italic;
+    color: grey;
+}
+
+.catalog {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: auto;
+
+    background-color: rgba(255, 255, 255, 0.5);
+    padding-bottom: 2%;
+    padding-top: 2%;
+    margin-bottom: 2%;
+}
+
+.product_div {
+    min-width: 250px;
+    max-width: 250px;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+
+    background-color: white;
+    box-shadow: 10px 10px rgba(30, 30, 30, 0.5);
+}
+
+.product_div img {
+    width: 100%;
+}
+
+.product_info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product_info a {
+    color: black;
+    text-decoration: none;
+}
+
+.product_info a:hover {
+    color: grey;
+}
+
+.product_info form {
+    align-self: center;
+}
+
+.product_info .button {
+    border: none;
+    height: 50px;
+    font-family: Courier, Arial;
+    margin-left: 3%;
+}
+
+.product_info .button:active {
+    background-color: black;
+    color: white;
+}
+
+body
+{
+    background-image: url("../storage/images/fond.jpeg");
+    background-size: cover;
+    height: 100%;
+}
+
+html
+{
+    height: 100vh;
+}

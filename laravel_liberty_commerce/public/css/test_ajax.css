@@ -1,0 +1,21 @@
+#main_wrapper
+{
+    width: 90%;
+    border: 2px black solid;
+    padding: 2%;
+
+    display: flex;
+    margin: auto;
+
+}
+
+.tests
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#orders_n, #biggest_order, #refresh
+{
+    margin-top: 5%;
+}
