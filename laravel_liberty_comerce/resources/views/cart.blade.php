@@ -17,54 +17,32 @@
                 <h1 class="cart">Mon panier</h1>
                 @if (session('success')) <h4 class="cart">{{session('success')}}</h4> @endif
                 <div class="table_container">
-                    <table>
+                    <table id="cart_table">
                         <tr id ="columns">
                             <th>Produit</th>
                             <th>Prix</th>
                             <th>Quantité</th>
                             <th>Supprimer</th>
                         </tr>
-                        @foreach ($cart_items_sorted as $item)
-                        @php $product = $products->where('id', $item->product_id)->first(); @endphp
-                        <tr>
-                            <th>{{$product->name}}</th>
-                            <th>{{$product->price}} balles</th>
-                            <th>{{$cart_items->where('product_id', $product->id)->count()}}</th>
-                            <th>
-                                <form action="/removeproduct" method="post">
-                                    @csrf
-                                    <input type="hidden" name="product_id" value="{{$product->id}}">
-                                    <input class="delete" type="submit" value="Supprimer">
-                                </form>
-                            </th>
-                        </tr>
-                        @endforeach
                     </table>
                 </div>
-                @if (!$cart_items->isEmpty())
-
                 <div class="order">
                     <div class="total">
-                        @php $session_info = session()->all(); @endphp
-                        Total : {{$session_info['total']}} balles
                     </div>
                     @if (is_null(auth()->user()->shipping_address))
-                    <form action="/order" method="get">
-                        <input type="submit" value="Commander">
+                    <form class="orderform" action="/order" method="get">
                     </form>
                     @else
-                    <form action="/order" method="post">
+                    <form class="orderform" action="/order" method="post">
                         @csrf
-                        <input type="hidden" name="shipping_address" value="{{auth()->user()->shipping_address}}">
-                        <input type="submit" value="Commander">
+                        <input type="hidden" id="shipping_address" value="{{auth()->user()->shipping_address}}">
                     </form>
                     @endif
                 </div>
-                @endif
             </div>
         </div>
     </body>
-    <script type="text/javascript" src="css/cart.js"></script>
+    <script type="text/javascript" src="../js/cart.js"></script>
 
     @include('layout.footer')
     

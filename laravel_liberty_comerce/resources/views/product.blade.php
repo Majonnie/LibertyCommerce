@@ -40,15 +40,14 @@
                     </div>
                     @if ($product->stock > 0)
                         <div class="right">
-                            <form class="buy" action="/cart" method="post">
+                            <form class="buy" onsubmit="return false" >
                                 @csrf
                                 @php $stock_max = $product->stock; @endphp
                                 <div class="quantity">
                                     <label name="product_quantity">Quantité:</label>
-                                    <input type="number" name="product_quantity" max="{{$stock_max}}" min=1 value=1>
+                                    <input type="number" id="product_quantity" max="{{$stock_max}}" min=1 value=1>
                                 </div>
-                                <input type="hidden" name="product_id" value="{{$product->id}}">
-                                <button type="submit">ACHETER</button>
+                                <button @if (Auth::check()) onclick="addToCart({{$product->id}}, '{{$product->name}}', {{$product->price}})" @else onclick="loginView()" @endif value="submit" type="submit">ACHETER</button>
                             </form>
                         </div>
                     @endif
@@ -102,6 +101,7 @@
             @endif
         @endif
     </body>
-    <script type="text/javascript" src="css/cart.js"></script>
+    <script type="text/javascript" src="../js/cart.js"></script>
+    
     @include('layout.footer')
 </html>

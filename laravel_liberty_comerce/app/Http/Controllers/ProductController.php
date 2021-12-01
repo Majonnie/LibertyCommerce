@@ -59,7 +59,8 @@ class ProductController extends Controller
             'user_id' => auth()->user()->id,
             'shipping_address' => $shipping_address
         ]);
-        $items = DB::table('users_has_products')->where('user_id', auth()->user()->id)->get('product_id');
+        $items = $request->session()->get('cart');
+        dd($items);
         $items_ordered = $items;
         foreach ($items_ordered as $item) {
             if (DB::table('products')->where('id', $item->product_id)->first()->stock > 0) {

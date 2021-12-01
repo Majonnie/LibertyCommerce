@@ -34,7 +34,11 @@
                                         <a href="{{url('product', ['id'=>$product_id])}}"><p>Voir la spécialité</p></a>
                                     </div>
                                     @if ($product->stock > 0)
-                                    <input type="submit" onclick="addToCart({{$product->id}})" value="ACHETER" class="button">
+                                    <form onsubmit="return false">
+                                        @csrf
+                                        <input type="hidden" id="product_quantity" value="1">
+                                        <input @if (Auth::check()) onclick="addToCart({{$product->id}}, '{{$product->name}}', {{$product->price}})" @else onclick="loginView()" @endif type="submit" value="ACHETER" class="button">
+                                    </form>
                                     @endif
                                 </div>
                             </div>
@@ -51,7 +55,12 @@
                                     <a href="{{url('product', ['id'=>$product_id])}}"><p>Voir la spécialité</p></a>
                                 @if ($product->stock > 0)
                                 </div>
-                                    <input type="submit" onclick="addToCart({{$product->id}})" value="ACHETER" class="button">
+                                <form onsubmit="return false">
+                                    @csrf
+                                    <input type="hidden" id="product_quantity" value="1">
+                                    <input type="hidden" id="product_id" value="{{$product_id}}">
+                                    <input @if (Auth::check()) onclick="addToCart({{$product->id}}, {{$product->name}}, {{$product->price}})" @else onclick="loginView()" @endif type="submit" value="ACHETER" class="button">
+                                </form>
                                 @else
                                 <p>Hors stock</p>
                                 </div>
@@ -68,5 +77,5 @@
 
     </body>
     <script type="text/javascript" src="../js/check_popup.js"></script>
-        <script type="text/javascript" src="css/cart.js"></script>
+    <script type="text/javascript" src="../js/cart.js"></script>
 </html>
