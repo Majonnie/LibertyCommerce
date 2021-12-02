@@ -62,9 +62,6 @@ class ProductController extends Controller
         ]);
         $items = $request->data;
         $items_ordered = json_decode($items);
-        if ($items_ordered->isEmpty()) {
-            return;
-        }
         foreach ($items_ordered as $item) {
             for ($i = 0; $i < $item->qty; $i++) {
                 if (DB::table('products')->where('id', $item->id)->first()->stock > 0) {
