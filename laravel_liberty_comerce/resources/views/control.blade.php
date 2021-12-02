@@ -34,7 +34,7 @@
 
         </div>
     </body>
-
+    <script type="text/javascript" src="../js/control.js"></script>
     @include('layout.footer')
 
 </html>
