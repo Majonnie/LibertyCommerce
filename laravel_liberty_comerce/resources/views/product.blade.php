@@ -46,6 +46,7 @@
                                 <div class="quantity">
                                     <label name="product_quantity">Quantité:</label>
                                     <input type="number" id="product_quantity" max="{{$stock_max}}" min=1 value=1>
+                                    <input type="hidden" id="product_max_quantity" value="{{$stock_max}}">
                                 </div>
                                 <button @if (Auth::check()) onclick="addToCart({{$product->id}}, '{{$product->name}}', {{$product->price}})" @else onclick="loginView()" @endif value="submit" type="submit">ACHETER</button>
                             </form>

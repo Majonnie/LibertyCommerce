@@ -4,6 +4,13 @@ function addToCart(id, name, price) {
     var productName = name;
     var productPrice = price;
     var productQuantity = document.getElementById('product_quantity').value;
+    if (document.URL.includes('product')) {
+        var productMaxQuantity = document.getElementById('product_max_quantity').value;
+    }
+    if (productQuantity > productMaxQuantity) {
+        document.querySelector('.quantity').style.color = "red";
+        return;
+    }
     var newProduct = {name:productName, price:productPrice, id:productId, qty:productQuantity};
 
     var hasProduct = false;
@@ -103,7 +110,6 @@ function countItems() {
     })
     document.querySelector('.cart_count').innerHTML = count+" | Panier"
 }
-countItems();
 
 function order() {
     var cart = getCart();
@@ -121,20 +127,33 @@ function order() {
         address: shipping_address,
     },
     success:(resp)=>{
-        console.log(resp)
+        console.log(resp);
     },
     error:(resp)=>{
-        console.log(resp)
+        console.log(resp);
     }
     });
+    if (document.URL.includes('order')) {
+        var url = 'cart';
+        var hash = '#refresh';
+        window.location.href = url+hash;
+    } else {
+        refresh();
+    }
+}
+
+if (window.location.hash === '#refresh') {
     refresh();
 }
 
-  function refresh() {
+function refresh() {
     deleteCart();
     document.getElementById('order_button').remove();
     cart = [];
     sessionStorage.setItem('cart', JSON.stringify(cart));
     createCart();
     document.querySelector(".success_msg").innerHTML = "Nous prenons en compte votre commande, elle vous sera livrée dans les plus brefs délais (Même si vous n'avez pas payé...)";    
-  }
+}
+
+
+countItems();

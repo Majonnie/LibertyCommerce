@@ -2,26 +2,46 @@ document.getElementById('refresh').addEventListener("click", getInfo);
 
 function getInfo() {
     activeUser();
-    orderCount();
+    orderNumber();
     biggestOrder();
 }
 
 
 
 function activeUser() {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        $.ajax({
+        type: "GET",
+        url: "usernumber",
+        success:(resp)=>{
+            document.querySelector('#usernumber').innerHTML= resp;
+        },
+        error:(resp)=>{
+            console.log(resp)
         }
         });
+}
+
+function orderNumber() {
         $.ajax({
-        type: "POST",
-        url: "order",
-        data: {
-            data: 1,
+        type: "GET",
+        url: "ordernumber",
+        success:(resp)=>{
+            document.querySelector('#ordernumber').innerHTML= resp;
         },
+        error:(resp)=>{
+            console.log(resp)
+        }
+        });
+}
+
+function biggestOrder() {
+        $.ajax({
+        type: "GET",
+        url: "biggestorder",
         success:(resp)=>{
             console.log(resp)
+            document.querySelector('#biggestorder').innerHTML= 
+            "Commande passée le "+resp[0].created_at+" par "+resp[1].last_name+" "+resp[1].first_name+", livrée à "+resp[0].shipping_address;
         },
         error:(resp)=>{
             console.log(resp)

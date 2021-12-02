@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\UserAvatarController;
+use App\Http\Controllers\ControlController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -41,7 +42,9 @@ Route::middleware('auth')->group(function (){
         Route::get('/control', function () {
             return view('control');
         });
-        Route::get
+        Route::get('/usernumber', [ControlController::class, 'userNumber']);
+        Route::get('/ordernumber', [ControlController::class, 'orderNumber']);
+        Route::get('/biggestorder', [ControlController::class, 'biggestOrder']);
     });
 
     //Cart
