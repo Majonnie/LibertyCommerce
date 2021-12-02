@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function (){
         Route::get('/control', function () {
             return view('control');
         });
+        Route::get
     });
 
     //Cart

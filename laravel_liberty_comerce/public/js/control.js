@@ -9,23 +9,24 @@ function getInfo() {
 
 
 function activeUser() {
-    $(document).on('click', '#refresh', function(event) {
-        event.preventDefaut();
-
-        // var plateforme
-        var test = "test";
-
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        });
         $.ajax({
-            url : "/test",
-            data : {
-                test
-            },
-            method : "POST",
-            success : function(data) {
-                console.log(data);
-            }
-        })
-    })
+        type: "POST",
+        url: "order",
+        data: {
+            data: 1,
+        },
+        success:(resp)=>{
+            console.log(resp)
+        },
+        error:(resp)=>{
+            console.log(resp)
+        }
+        });
 }
 
 

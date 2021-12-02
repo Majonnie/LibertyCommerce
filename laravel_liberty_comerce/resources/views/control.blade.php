@@ -2,6 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Admin</title>
         <link rel="icon" type="image/gif/png" href="storage/images/logos/Burger.png">
         <link rel="stylesheet" href="../css/header.css">
