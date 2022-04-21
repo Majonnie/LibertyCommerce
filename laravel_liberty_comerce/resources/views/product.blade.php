@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Produit</title>
-        <link rel="icon" type="image/gif/png" href="storage/images/logos/Burger.png">
+        <link rel="icon" type="image/gif/png" href="../storage/images/logos/Burger.png">
         <link rel="stylesheet" href="../css/header.css">
         <link rel="stylesheet" href="../css/footer.css">
         <link rel="stylesheet" href="../css/style.css">
