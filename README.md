@@ -11,7 +11,7 @@ Création d'un site d'e-commerce à l'aide du framework Laravel : catalogue tr
     - mysql, en tant que SGBD de ce projet.
 
 * Lancement du projet (Linux / Mac) :
-  - `cd laravel_liberty_comerce`
+  - `cd laravel_liberty_commerce`
   - `php artisan serve`
   - suivre le lien donné dans le terminal (par défaut : http://127.0.0.1:8000/)
 
